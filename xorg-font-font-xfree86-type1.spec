@@ -1,7 +1,5 @@
-# $Rev: 3220 $, $Date: 2005-08-27 17:42:48 $
-#
-Summary:	font-xfree86-type1
-Summary(pl):	font-xfree86-type1
+Summary:	xfree86-type1 font
+Summary(pl):	Font xfree86-type1
 Name:		xorg-font-font-xfree86-type1
 Version:	0.99.0
 Release:	0.01
@@ -12,24 +10,22 @@ Source0:	http://xorg.freedesktop.org/X11R7.0-RC0/font/font-xfree86-type1-%{versi
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	pkgconfig >= 0.19
 BuildRequires:	xorg-app-bdftopcf
-BuildRequires:	xorg-font-font-util
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
+BuildRequires:	xorg-font-font-util
 BuildRequires:	xorg-util-util-macros
-BuildRequires:	pkgconfig >= 0.19
-BuildRoot:	%{tmpdir}/font-xfree86-type1-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-font-xfree86-type1
+xfree86-type1 font.
 
 %description -l pl
-font-xfree86-type1
-
+Font xfree86-type1.
 
 %prep
 %setup -q -n font-xfree86-type1-%{version}
-
 
 %build
 %{__aclocal}
@@ -39,17 +35,14 @@ font-xfree86-type1
 
 %{__make}
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files
 %defattr(644,root,root,755)
