@@ -1,17 +1,16 @@
 Summary:	xfree86-type1 font
 Summary(pl):	Font xfree86-type1
 Name:		xorg-font-font-xfree86-type1
-Version:	0.99.1
+Version:	1.0.0
 Release:	0.1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/font/font-xfree86-type1-%{version}.tar.bz2
-# Source0-md5:	5b6688cea95067886574c191992c3bc5
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/font/font-xfree86-type1-%{version}.tar.bz2
+# Source0-md5:	e66f36a6d68203cc4cf7b56ebbb192dd
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	fontconfig
-BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	t1utils
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
