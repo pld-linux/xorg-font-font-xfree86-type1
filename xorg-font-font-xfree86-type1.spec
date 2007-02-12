@@ -1,5 +1,5 @@
 Summary:	xfree86-type1 font
-Summary(pl.UTF-8):   Font xfree86-type1
+Summary(pl.UTF-8):	Font xfree86-type1
 Name:		xorg-font-font-xfree86-type1
 Version:	1.0.0
 Release:	0.1
