@@ -1,11 +1,11 @@
-Summary:	xfree86-type1 font
-Summary(pl.UTF-8):	Font xfree86-type1
+Summary:	XFree86 Cursor font in Type1 format
+Summary(pl.UTF-8):	Font XFree86 Cursor w formacie Type1
 Name:		xorg-font-font-xfree86-type1
 Version:	1.0.0
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/font/font-xfree86-type1-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/font/font-xfree86-type1-%{version}.tar.bz2
 # Source0-md5:	e66f36a6d68203cc4cf7b56ebbb192dd
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
@@ -20,10 +20,10 @@ Requires:	%{_fontsdir}/Type1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-xfree86-type1 font.
+XFree86 Cursor font in Type1 format.
 
 %description -l pl.UTF-8
-Font xfree86-type1.
+Font XFree86 Cursor w formacie Type1.
 
 %prep
 %setup -q -n font-xfree86-type1-%{version}
@@ -50,6 +50,10 @@ rm -f cursor.pfa
 sed -e '1d;s/\.pfa /.pfb /' fonts.scale > fonts.scale.xfree86
 rm -f fonts.scale fonts.dir fonts.cache-1
 
+cat > Fontmap.xfree86 <<EOF
+/Cursor                                  (cursor.pfb)   ;
+EOF
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -64,3 +68,4 @@ fontpostinst Type1
 %doc COPYING ChangeLog
 %{_fontsdir}/Type1/cursor.pfb
 %{_fontsdir}/Type1/fonts.scale.xfree86
+%{_fontsdir}/Type1/Fontmap.xfree86
