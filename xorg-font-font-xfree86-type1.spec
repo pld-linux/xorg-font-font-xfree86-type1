@@ -14,7 +14,8 @@ BuildRequires:	fontconfig
 BuildRequires:	t1utils
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
-BuildRequires:	xorg-util-util-macros
+BuildRequires:	xorg-font-font-util >= 1.1
+BuildRequires:	xorg-util-util-macros >= 1.3
 Requires(post,postun):	fontpostinst
 Requires:	%{_fontsdir}/Type1
 BuildArch:	noarch
@@ -34,8 +35,8 @@ Font XFree86 Cursor w formacie Type1.
 %{__autoconf}
 %{__automake}
 %configure \
-	--build=%{_host_platform} \
-	--host=%{_host_platform} \
+	--build=%{_host} \
+	--host=%{_host} \
 	--with-fontdir=%{_fontsdir}/Type1
 
 %{__make}
@@ -49,9 +50,9 @@ rm -rf $RPM_BUILD_ROOT
 # convert *.pfa to .pfb
 cd $RPM_BUILD_ROOT%{_fontsdir}/Type1
 t1binary cursor.pfa cursor.pfb
-rm -f cursor.pfa
+%{__rm} cursor.pfa
 sed -e '1d;s/\.pfa /.pfb /' fonts.scale > fonts.scale.xfree86
-rm -f fonts.scale fonts.dir fonts.cache-1
+%{__rm} fonts.scale fonts.dir
 
 cat > Fontmap.xfree86 <<EOF
 /Cursor                                  (cursor.pfb)   ;
@@ -68,7 +69,7 @@ fontpostinst Type1
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog
+%doc COPYING ChangeLog README
 %{_fontsdir}/Type1/cursor.pfb
 %{_fontsdir}/Type1/fonts.scale.xfree86
 %{_fontsdir}/Type1/Fontmap.xfree86
