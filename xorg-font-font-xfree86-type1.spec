@@ -1,12 +1,12 @@
 Summary:	XFree86 Cursor font in Type1 format
 Summary(pl.UTF-8):	Font XFree86 Cursor w formacie Type1
 Name:		xorg-font-font-xfree86-type1
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	MIT
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-xfree86-type1-%{version}.tar.bz2
-# Source0-md5:	a966f5a8aade9e63af86d8a6bf3e8586
+# Source0-md5:	df934bfc0339322cee73ee3c5460a648
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
